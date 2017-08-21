@@ -1,0 +1,100 @@
+
+@font-face {
+    font-family: 'klavikamedium_italic';
+    src: url('klavika_medium_italic-webfont.eot');
+    src: url('klavika_medium_italic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('klavika_medium_italic-webfont.woff2') format('woff2'),
+         url('klavika_medium_italic-webfont.woff') format('woff'),
+         url('klavika_medium_italic-webfont.ttf') format('truetype'),
+         url('klavika_medium_italic-webfont.svg#klavikamedium_italic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'klavikamedium';
+    src: url('klavika_medium-webfont.eot');
+    src: url('klavika_medium-webfont.eot?#iefix') format('embedded-opentype'),
+         url('klavika_medium-webfont.woff2') format('woff2'),
+         url('klavika_medium-webfont.woff') format('woff'),
+         url('klavika_medium-webfont.ttf') format('truetype'),
+         url('klavika_medium-webfont.svg#klavikamedium') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'klavikaregular_italic';
+    src: url('klavika_regular_italic-webfont.eot');
+    src: url('klavika_regular_italic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('klavika_regular_italic-webfont.woff2') format('woff2'),
+         url('klavika_regular_italic-webfont.woff') format('woff'),
+         url('klavika_regular_italic-webfont.ttf') format('truetype'),
+         url('klavika_regular_italic-webfont.svg#klavikaregular_italic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'klavika_rgregular';
+    src: url('klavika_regular-webfont.eot');
+    src: url('klavika_regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('klavika_regular-webfont.woff2') format('woff2'),
+         url('klavika_regular-webfont.woff') format('woff'),
+         url('klavika_regular-webfont.ttf') format('truetype'),
+         url('klavika_regular-webfont.svg#klavika_rgregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'klavika_bdbold_italic';
+    src: url('klavika_bold_italic-webfont.eot');
+    src: url('klavika_bold_italic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('klavika_bold_italic-webfont.woff2') format('woff2'),
+         url('klavika_bold_italic-webfont.woff') format('woff'),
+         url('klavika_bold_italic-webfont.ttf') format('truetype'),
+         url('klavika_bold_italic-webfont.svg#klavika_bdbold_italic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'klavika_bdbold';
+    src: url('klavika_bold-webfont.eot');
+    src: url('klavika_bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('klavika_bold-webfont.woff2') format('woff2'),
+         url('klavika_bold-webfont.woff') format('woff'),
+         url('klavika_bold-webfont.ttf') format('truetype'),
+         url('klavika_bold-webfont.svg#klavika_bdbold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'klavikalight_italic';
+    src: url('klavika_light_italic-webfont.eot');
+    src: url('klavika_light_italic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('klavika_light_italic-webfont.woff2') format('woff2'),
+         url('klavika_light_italic-webfont.woff') format('woff'),
+         url('klavika_light_italic-webfont.ttf') format('truetype'),
+         url('klavika_light_italic-webfont.svg#klavikalight_italic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'klavikalight';
+    src: url('klavika_light-webfont.eot');
+    src: url('klavika_light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('klavika_light-webfont.woff2') format('woff2'),
+         url('klavika_light-webfont.woff') format('woff'),
+         url('klavika_light-webfont.ttf') format('truetype'),
+         url('klavika_light-webfont.svg#klavikalight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}

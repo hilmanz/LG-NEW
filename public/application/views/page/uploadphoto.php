@@ -1,0 +1,353 @@
+<section id="uploadphoto" class="theContainer">
+    <div class="container">
+        <div class="row">
+            <div  class="col-md-12">
+                <div class="w100">
+                    <div class="heading center">
+                        <div class="entry">
+                            <h1 class="red">Start A New Day with LG</h1>
+                            <p>Tidak perlu menunggu lama untuk menyempurnakan rumah Anda dengan produk LG. Foto ruang kosong yang selalu Anda impikan untuk diisi oleh produk LG dan dapatkan kesempatan untuk menjadikannya menjadi nyata!</p>
+                            <div class="howto"><img src="<?= base_url()?>assets/images/howto.png"/></div>
+                        </div>
+                    </div><!-- end .heading -->
+                </div>
+                <div class="content">
+                    <div id="formupload" class="theForm" style="position:relative;" >
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="colupload">
+                                        <div id="cropContaineroutput"></div>
+                                        <div id="img-out"></div>
+                                        <a id="btnSave" href="javascript:void(0);"><i class="icon-checkmark"></i></a>
+                                        <a id="btnCancel" href="javascript:void(0);"><i class="icon-cancel2"></i></a>
+                                    </div>
+                                    <div class="colitem">
+                                        <a class="proditem" href="javascript:void(0);"><input type="hidden"  id="jns_prod" name="jns_prod" value="1" />
+                                            <img  rel="1" class="prodimg" src="<?= base_url()?>assets/content/product/tv.png"/>
+                                        </a>
+                                        <a  class="proditem" href="javascript:void(0);"><input type="hidden"  id="jns_prod" name="jns_prod" value="2" />
+                                            <img rel="2" class="prodimg" src="<?= base_url()?>assets/content/product/kulkas.png"/>
+                                        </a>
+                                        <a  class="proditem" href="javascript:void(0);" ><input type="hidden"  id="jns_prod" name="jns_prod" value="3" />
+                                            <img rel="3" class="prodimg" src="<?= base_url()?>assets/content/product/teather.png"/>
+                                        </a>
+                                        <a class="proditem" href="javascript:void(0);" ><input type="hidden"  id="jns_prod" name="jns_prod" value="4" />
+                                            <img rel="4"  class="prodimg"src="<?= base_url()?>assets/content/product/mesincuci.png"/>
+                                        </a>
+                                        <a class="proditem" href="javascript:void(0);"><input type="hidden"  id="jns_prod" name="jns_prod" value="5" />
+                                            <img  rel="5"  class="prodimg"src="<?= base_url()?>assets/content/product/oven.png"/>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <!--<form id="formuploaddata" method="post"enctype="multipart/form-data" action="insertphoto">-->
+								<form id="formuploaddata" method="post"enctype="multipart/form-data" action="insertphoto">
+                                    <input type="text" placeholder="Nama*" name="nama" id="nama"/>
+                                    <input type="text" placeholder="No. Tlpn*" name="tlpn" id="tlpn" class="number"/>									
+                                    <input type="text" placeholder="Email*" name="email" id="email"/>
+                                    <input type="text" placeholder="Alamat*" name="alamat" id="alamat"/>
+                                    <!--<input type="text" placeholder="Provinsi*" name="provinsi" id="provinsi"/>-->
+                                    <div class="customselect">
+                                    <select name="provinsi" id="provinsi" >
+                                        <option value=''>Pilih Provinsi</option>
+                                        <?php
+                                                if (count($provinsi)) {
+                                                foreach ($provinsi as $key => $list) {                                              
+                                                echo "<option value='". $list['id'] . "'>" . $list['nama'] . "</option>";
+                                                }       
+                                                    }   
+                                                ?>
+                                          </select>
+                                    </div>
+                                    <input type="text"  id="cropvalue" name="imagecrop"/>
+                                  <input type="text"  id="produk" name="produk"  />
+                                    <div class="customcheck">
+                                        <input type="checkbox" name="agree"/>
+                                        <span>Saya menyetujui <a href="http://lgindonesia.com/lgforyou/terms">Syarat &amp; Ketentuan</a></span>
+                                    </div>
+                                    <div class="center pad20">
+                                     <input type="submit" class="button" value="SUBMIT" />
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- end .content -->
+            </div><!-- end .col-md-12 -->
+        </div><!-- end .row -->
+    </div><!-- end .container -->
+    <section id="recentgallery">
+        <div class="container">
+            <div id="galleryList" class="owl-carousel">
+                <?php foreach ($rows as $row) { if ($row->type_sosmed=='twitter'){?>
+                 <div class="items <?php   if($row->type_campaign=='cerita'){ ?> items-text  <?php  }    ?>">
+                    <div class="itemContainer">
+                        <i class="ico icon-twitter"></i>
+                        <div class="entry">
+                                <?php 
+								if($row->type_campaign=='cerita'){
+									echo "<span class='photo-entry-text thumb'>";
+									echo $row->cerita;
+									echo "</span>";
+								}else{
+									echo "<a href='#id-".$row->id."' class='photo-entry thumb showPopup'>";
+                                    echo "<img src='".base_url()."page/".$row->image."' border='0' width='160'>"; 
+									echo "</a>";								
+								}								
+								?>
+                                <div class="popup">
+                                    <div id="id-<?php echo $row->id; ?>" class="popupContainer">
+                                       <img src='<?php echo base_url(); ?>page/<?php echo $row->image; ?>' border='0'>
+                                    </div>
+                                </div>
+                        </div>
+                        <div class="meta">
+                                <div class="thumb thumb-small"><?php echo "<img src='".$row->gambar_akun."'/>" ?></div>
+                                <div class="userdetail">
+                                    <span class="userID"><b><?php echo $row->nama_akun; ?></b></span>
+                                </div>
+                        </div>
+                        <div class="sharebox">
+                           <div class="sharebox-entry">
+                                <h3>SHARE</h3>          
+							  <?php
+								$cerita="Ikuti kontes foto di www.LGForYou.com dan dapatkan kejutan hadiah produk LG untuk mengisi ruang kosong di rumah Anda! &hashtags=LGForYou";
+								$image="Produk LG ini siap untuk mengisi ruang kosong dalam rumah Anda. Ikuti kontes foto di  www.LGForYou.com dan dapatkan kejutan hadiah dari LG! &hashtags=LGForYou";
+								
+								echo "<a rel='nofollow' class='sharebtn' href='http://twitter.com/intent/tweet?text=".$cerita."' title='Tweet About It!' target='_blank'><i class='icon-twitter'>&nbsp;</i></a>";
+									?>
+                               <a class="sharebtn" href='javascript:void(0)' onclick="shareFB('Cerita','http://lg.kanadigital.com/public/page/uploadcerita','http://lg.kanadigital.com/public/page/<?php echo $row->image; ?>','','<?php echo $image; ?>')"><i class="icon-facebook">&nbsp;</i></a>
+							   
+							
+                            </div>
+                        </div>
+                    </div><!-- end .itemContainer -->
+                </div><!-- end .items -->
+				<?php }else{ ?>
+                 <div class="items <?php   if($row->type_campaign=='cerita'){ ?> items-text  <?php  }    ?>">
+                    <div class="itemContainer">
+                        <i class="ico icon-facebook"></i>
+                        <div class="entry">
+                                <?php 
+								
+								if($row->type_campaign=='cerita'){
+									echo "<span class='photo-entry-text thumb'>";
+									echo $row->cerita;
+									echo "</span>";
+								}else{
+                                    echo "<a href='#id-".$row->id."' class='photo-entry thumb showPopup'>";
+                                    echo "<img src='".base_url()."page/".$row->image."' border='0' width='160'>"; 
+                                    echo "</a>";    							
+								}
+								?>
+                                <div class="popup">
+                                    <div id="id-<?php echo $row->id; ?>" class="popupContainer">
+                                       <img src='<?php echo base_url(); ?>page/<?php echo $row->image; ?>' border='0'>
+                                    </div>
+                                </div>
+                        </div>
+                        <div class="meta">
+                                <div class="thumb thumb-small"><?php echo "<img src='".$row->gambar_akun."'/>" ?></div>
+                                <div class="userdetail">
+                                    <span class="userID"><b><?php echo $row->nama_akun; ?></b></span>
+                                </div>
+                        </div>
+                        <div class="sharebox">
+                            <div class="sharebox-entry">	
+                                <h3>SHARE</h3>          												
+								<?php
+									$cerita="Ikuti kontes foto di www.LGForYou.com dan dapatkan kejutan hadiah produk LG untuk mengisi ruang kosong di rumah Anda! &hashtags=LGForYou";
+									$image="Produk LG ini siap untuk mengisi ruang kosong dalam rumah Anda. Ikuti kontes foto di  www.LGForYou.com dan dapatkan kejutan hadiah dari LG! &hashtags=LGForYou";
+								
+									echo "<a rel='nofollow' class='sharebtn' href='http://twitter.com/intent/tweet?text=".$cerita."' title='Tweet About It!' target='_blank'><i class='icon-twitter'>&nbsp;</i></a>";
+									?>
+                               <a class="sharebtn" href='javascript:void(0)' onclick="shareFB('Cerita','http://lg.kanadigital.com/public/page/uploadcerita','http://lg.kanadigital.com/public/page/<?php echo $row->image; ?>','','<?php echo $image; ?>')"><i class="icon-facebook">&nbsp;</i></a>
+							   
+							</div>
+                        </div>
+                    </div><!-- end .itemContainer -->
+                </div><!-- end .items -->
+				<?php } } ?>
+            </div><!-- end #galleryList -->
+        </div>
+    </section>
+    <section id="ads">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                        <div class="ads">
+                            <a href="https://www.hartonoelektronika.com/en/lg-top-load-washer-wfsa17hd6.html" target="_blank"><img src="<?= base_url()?>assets/content/ads1.jpg"/></a>
+                        </div>
+                </div>
+                <div class="col-md-6">
+                        <div class="ads">
+                            <a href="https://www.hartonoelektronika.com/en/lg-home-theatre-in-the-box-bh7540tw.html" target="_blank"><img src="<?= base_url()?>assets/content/ads2.jpg"/></a>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</section><!-- end .theContainer-->
+<div class="popup">
+    <div id="popup-message" class="popup-container">
+        <div class="popup-entry">
+            <a href="javascript:;" onclick="openFbDialog();" class="button btnred"> Sign in to Facebook</a>
+			<a href="javascript:;" onclick="openTwitterDialog();" class="button btnred"> Sign in to Twitter</a>
+			
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+<script type="text/javascript">
+    function openFbDialog()
+    {
+        myWindow=window.open('<?=$login_url?>&display=popup','','width=500,height=300,left=0');
+        myWindow.focus();
+    }
+
+    function openTwitterDialog()
+    {
+        myWindow=window.open('<?=base_url()?>page/twitter_auth?display=popup','','width=500,height=300,left=0');
+        myWindow.focus();
+    }
+
+
+    $( ".prodimg" ).click(function() {
+        $(".dragprodimg").remove();
+        var prodid = $(this).attr( "rel" );
+        $("#produk").val(prodid);
+        var imgsrc = $(this).attr( "src" );
+        $(".cropImgWrapper").append($('<img id="dragprodimg" />').addClass('dragprodimg').attr('src',imgsrc));
+        //drag product
+        $('.dragprodimg').pep();
+    });
+
+
+    var croppicContaineroutputOptions = {
+            uploadUrl:'<?= base_url()?>page/img_save_to_file.php',
+            //cropUrl:'img_crop_to_file.php', 
+            //outputUrlId:'cropOutput',
+            //modal:false,
+            onAfterImgUpload:   function(){ 
+                $("#btnSave").addClass("show");
+             },
+            onReset:    function(){ 
+                $("#btnSave").removeClass("show");
+             },
+             onAfterImgCrop:    function(){
+                $("#btnSave").removeClass("show");
+             },
+            loaderHtml:'<div class="loader bubblingG"><span id="bubblingG_1"></span><span id="bubblingG_2"></span><span id="bubblingG_3"></span></div> '
+    }
+    var cropContaineroutput = new Croppic('cropContaineroutput', croppicContaineroutputOptions);
+
+    $(function() { 
+        $("#btnSave").click(function() { 
+            $(this).removeClass("show");
+            $("#btnCancel").addClass("show");
+            html2canvas($(".cropImgWrapper"), {
+                onrendered: function(canvas) {
+                    theCanvas = canvas;
+                    document.body.appendChild(canvas);
+                    $("#img-out").append(canvas);
+                    var dataURL = canvas.toDataURL();
+                    $("#img-out canvas").src = dataURL;
+                    $.ajax({
+                        type: "POST",
+                        url: "<?= base_url()?>page/upload.php",
+                        data: { 
+                           imgBase64: dataURL
+                        }
+                    }).done(function(response) {
+                        console.log('saved: ' + response); 
+                        $("#cropvalue").val(response);
+                    });
+                }
+            });
+        });
+    }); 
+    $(function() { 
+        $("#btnCancel").click(function() { 
+            $("#img-out canvas").remove();
+            $(this).removeClass("show");
+            $("#btnSave").addClass("show");
+        });
+    }); 
+    $("#formuploaddata").validate({
+        rules: {
+            nama: {required: true},
+            tlpn: {required: true},
+            email: {email:true, required: true},
+            agree: {required: true},
+			produk: {required: true},
+            alamat: {required: true},
+            provinsi: {required: true},
+			imagecrop:  {required: true}
+        },
+        messages: {
+            nama: "Isi nama Anda",
+            tlpn: "Isi nomor telepon Anda",
+            email: "Isi alamat email Anda",
+            alamat: "Isi alamat rumah Anda",
+            provinsi: "Isi Provinsi Anda",
+            agree: "Anda harus menyetujui </br> <a href='http://lgindonesia.com/lgforyou/terms'>Syarat dan ketentuan</a>",
+			imagecrop: "Upload foto Anda",
+			produk: 'Pilih produk Anda'
+        },
+        tooltip_options: {
+            email: {trigger:'focus'},
+            agree: {placement:'right',html:true}
+        },
+        errorPlacement: function (error, element) {
+            alert(error.text());
+        },
+        submitHandler: function (form) { 
+			save_via_ajax();
+             $.magnificPopup.open({
+                    items: {
+                            src: '#popup-message' 
+                    },
+                    type: 'inline'
+                }, 0);
+				
+                return false; 
+        }
+    });
+    function clickLink(value) {
+	var myLink = value; 
+	} 
+	 function save_via_ajax(){    
+        var nama = $("#nama").val();        
+        var tlpn = $("#tlpn").val();        
+        var email = $("#email").val();
+        var cropvalue = $("#cropvalue").val();
+        var produk = $("#produk").val();
+        var alamat = $("#alamat").val();
+        var provinsi = $("#provinsi").val();
+
+
+        $.ajax({
+                type:"POST",
+                url: "<?= base_url() ?>page/insertphoto",
+                data: "nama="+nama+"&tlpn="+tlpn+"&email="+email+"&imagecrop="+cropvalue+"&produk="+produk+"&alamat="+alamat+"&provinsi="+provinsi,
+                beforeSend: function(){
+                $("#loading-box").show();				
+				console.log(cropvalue);
+            },
+            success: function(pesan){ 
+                 resetForm($('#formuploaddata')); 
+            } 
+        });
+    };
+	
+	$('.number').keyup(function () {  	
+                if(this.value)
+                {
+                        this.value = this.value.replace(/[^0-9]/g,''); 
+                        
+                }
+        });
+	
+</script>
